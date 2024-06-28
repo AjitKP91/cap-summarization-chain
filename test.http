@@ -1,0 +1,12 @@
+@host=http://localhost:4004
+@path=/odata/v4/summarization
+
+
+### Get Summary
+GET {{host}}{{path}}/getSummaryByStuff()
+
+### Get Summary
+GET {{host}}{{path}}/getSummaryByReduce()
+
+### Get Summary
+GET {{host}}{{path}}/getSummaryByRefine()

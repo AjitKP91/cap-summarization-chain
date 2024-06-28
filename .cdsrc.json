@@ -1,0 +1,21 @@
+{
+  "requires": {
+    "db": "hana",
+    "cap-llm-plugin": {
+      "impl": "cap-llm-plugin/srv/cap-llm-plugin.js"
+    },
+    "GENERATIVE_AI_HUB": {
+      "CHAT_MODEL_DESTINATION_NAME": "AICoreAzureOpenAIDestination",
+      "CHAT_MODEL_DEPLOYMENT_URL": "/v2/inference/deployments/da7e6a6d1e4c42a3",
+      "CHAT_MODEL_RESOURCE_GROUP": "default",
+      "CHAT_MODEL_API_VERSION": "2023-05-15"
+    },
+    "AICoreAzureOpenAIDestination": {
+      "kind": "rest",
+      "credentials": {
+        "destination": "openai-aicore-api",
+        "requestTimeout": "300000"
+      }
+    }
+  }
+}
