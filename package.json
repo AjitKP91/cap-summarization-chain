@@ -1,8 +1,8 @@
 {
   "name": "cap-summarization-chain",
   "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "description": "Langchain Summarization Chain with SAP GenAIHub",
+  "repository": "https://github.com/AjitKP91/cap-summarization-chain.git",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
