@@ -13,26 +13,30 @@ class GenAIHubChatModel extends SimpleChatModel {
   async _call(messages, options, runManager) {
     // debugger;
     try {
-      const chatMessages = [];
-      messages.forEach(message => {
-        switch (message.toDict().type) {
-          case 'human':
-            chatMessages.push({"role": "user","content": message.toDict().data.content});
-            break;
-          case 'system':
-            chatMessages.push({"role": "system","content": message.toDict().data.content});
-            break;
-          case 'ai':
-            chatMessages.push({"role": "assistant","content": message.toDict().data.content});
-            break;
-        }
-      });
       const capLLMPlugin = await cds.connect.to("cap-llm-plugin");
-      const chatResponse = await capLLMPlugin.getChatCompletion({messages: chatMessages});
+      const chatResponse = await capLLMPlugin.getChatCompletion({messages: _convertToChatMessages(messages)});
       return chatResponse.content;
     } catch (error) {
       throw new Error("error while calling chat model apis via genai hub (cap-llm-plugin)");
     }
+  }
+
+  _convertToChatMessages(messages) {
+      const chatMessages = [];
+      messages.forEach(message => {
+          switch (message.toDict().type) {
+              case 'human':
+                  chatMessages.push({ "role": "user", "content": message.toDict().data.content });
+                  break;
+              case 'system':
+                  chatMessages.push({ "role": "system", "content": message.toDict().data.content });
+                  break;
+              case 'ai':
+                  chatMessages.push({ "role": "assistant", "content": message.toDict().data.content });
+                  break;
+          }
+      });
+      return chatMessages;
   }
 
   async *_streamResponseChunks(messages, options, runManager) {
