@@ -11,7 +11,7 @@ This sample repository contains sourcecode for summarization of texts using [Lan
 >3.  Refine: The chain updates a rolling summary by iterating over the documents in a sequence.  In each iteration, the current document and the previously generated summary are passed as prompt for summarization.
 
 Note: Here, document refers to langchain module: [Document](https://v02.api.js.langchain.com/classes/langchain_core_documents.Document.html).    
-In Js, it is an object with 2 properties: paegContent, metadata
+In Js, it is an object with 2 properties: pageContent, metadata
 Example: 
 ```json 
   { 

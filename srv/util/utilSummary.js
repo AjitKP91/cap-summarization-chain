@@ -28,8 +28,8 @@ const summarize = async function(textDocuments, type) {
   }
   
   const chatModel     = new utilGenAIHub.GenAIHubChatModel({});
-  const summaryChain  = loadSummarizationChain(chatModel, summaryConfig);
-  const textSummary   = await summaryChain.invoke({ input_documents: configParams });
+  const summaryChain  = loadSummarizationChain(chatModel, configParams);
+  const textSummary   = await summaryChain.invoke({ input_documents: textDocuments });
   return textSummary;
 }
 
